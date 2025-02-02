@@ -1,0 +1,22 @@
+{
+  "name": "autotest_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:record": "cypress run --record",
+    "test:reporter": "cypress run --reporter mochawesome",
+    "test:config": "cypress run --config",
+    "allure:generate": "allure generate --clean",
+    "allure:open": "allure open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "cypress": "^14.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}

@@ -7,7 +7,7 @@ describe('Checkout', () => {
     LoginPage.open();
   });
 
-  it.only('[TC-8] Valid ckeckout', () => {
+  it('[TC-8] Valid ckeckout', () => {
     LoginPage.loginWithCorrectData();
     HomePage.addToCardItem();
     HomePage.verifyCountItemInTheCard();

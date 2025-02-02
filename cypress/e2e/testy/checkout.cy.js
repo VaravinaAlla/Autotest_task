@@ -9,6 +9,7 @@ describe('Checkout', () => {
 
   it.only('[TC-8] Valid ckeckout', () => {
     LoginPage.loginWithCorrectData();
+    cy.log('login with valid data');
     HomePage.addToCardItem();
     HomePage.verifyCountItemInTheCard();
     HomePage.openShopingCart();

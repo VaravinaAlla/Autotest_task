@@ -76,6 +76,10 @@ class CheckoutPage extends BasePage {
     return cy.get('@selectedItemName');
   }
 
+  get selectedItemPrice() {
+    return cy.get('@selectedItemPrice');
+  }
+
   clickBackHomeButton() {
     this.backHomeButton.click();
   }
@@ -138,7 +142,7 @@ class CheckoutPage extends BasePage {
     this.selectedItemName.then((selectedItemName) => {
       this.cartItem.contains(selectedItemName).should('be.visible');
     });
-    cy.get('@selectedItemPrice').then((selectedItemPrice) => {
+    this.selectedItemPrice.then((selectedItemPrice) => {
       this.cartItem.contains(selectedItemPrice).should('be.visible');
     });
   }

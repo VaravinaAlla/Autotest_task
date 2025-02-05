@@ -1,33 +1,35 @@
-import LoginPage from '../../pages/LoginPage';
-import CheckoutPage from '../../pages/CheckoutPage';
-import HomePage from '../../pages/HomePage';
+import loginPage from '../../pages/LoginPage';
+import checkoutPage from '../../pages/CheckoutPage';
+import homePage from '../../pages/HomePage';
 
 describe('Checkout', () => {
   beforeEach(() => {
-    LoginPage.open();
+    loginPage.open();
   });
 
   it('[TC-8] Valid ckeckout', () => {
-    LoginPage.loginWithCorrectData();
-    HomePage.addToCardItem();
-    HomePage.verifyCountItemInTheCard();
-    HomePage.openShopingCart();
-    CheckoutPage.verifyProductNameInCart();
-    CheckoutPage.clickCheckoutButton();
-    CheckoutPage.verifyCheckoutPage();
-    CheckoutPage.fillFormAndClickContinue();
-    CheckoutPage.verifyProductNameAndPrice();
-    CheckoutPage.clickFinishButton();
-    CheckoutPage.verifyFinishPage();
-    CheckoutPage.clickBackHomeButton();
-    HomePage.verifyHomePage();
+    loginPage.loginWithCorrectData();
+    homePage.addToCardItem();
+    homePage.verifyCountItemInTheCard();
+    homePage.openShopingCart();
+    checkoutPage.verifyProductNameInCart();
+    checkoutPage.clickCheckoutButton();
+    checkoutPage.verifyCheckoutPage();
+    checkoutPage.fillFormAndClickContinue();
+    checkoutPage.verifyProductNameAndPrice();
+    checkoutPage.clickFinishButton();
+    checkoutPage.verifyFinishPage();
+    checkoutPage.clickBackHomeButton();
+    homePage.verifyHomePage();
   });
 
   it('[TC-9] Checkout without product', () => {
-    LoginPage.loginWithCorrectData();
-    HomePage.openShopingCart();
-    CheckoutPage.verifyCartIsEmpty();
-    CheckoutPage.verifyCartPage();
-    CheckoutPage.clickCheckoutButton();
+    loginPage.loginWithCorrectData();
+    homePage.openShopingCart();
+    checkoutPage.verifyCartIsEmpty();
+    checkoutPage.verifyCartPage();
+    checkoutPage.clickCheckoutButton();
+    checkoutPage.verifyCartPage();
+    checkoutPage.verifyErrorMessage();
   });
 });

@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
 
-import LoginPage from '../../pages/LoginPage';
-import HomePage from '../../pages/HomePage';
+import loginPage from '../../pages/LoginPage';
+import homePage from '../../pages/HomePage';
 
 describe('Social media link in the footer', () => {
   beforeEach(() => {
-    LoginPage.open();
+    loginPage.open();
   });
 
   it('[TC-7] Footer Links', () => {
-    LoginPage.loginWithCorrectData();
-    HomePage.openTwitterLink();
-    HomePage.openFacebookLink();
-    HomePage.openLinkedinLink();
+    loginPage.loginWithCorrectData();
+    homePage.openTwitterLink();
+    homePage.openFacebookLink();
+    homePage.openLinkedinLink();
   });
 });

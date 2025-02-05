@@ -1,37 +1,37 @@
 /// <reference types="cypress" />
 
-import LoginPage from '../../pages/LoginPage';
+import loginPage from '../../pages/LoginPage';
 import testData from '../../fixtures/credentials.json';
-import HomePage from '../../pages/HomePage';
+import homePage from '../../pages/HomePage';
 
 describe('Login tests with correct and incorrect data', () => {
   beforeEach(() => {
-    LoginPage.open();
+    loginPage.open();
   });
 
   it('[TC-1]Valid Login', () => {
-    LoginPage.login(
+    loginPage.login(
       testData.userNames.correctUsername,
       testData.passwords.correctPassword
     );
-    HomePage.verifyHomePage();
+    homePage.verifyHomePage();
   });
 
   it('[TC-2] Login with invalid password', () => {
-    LoginPage.login(
+    loginPage.login(
       testData.userNames.correctUsername,
       testData.passwords.incorrectPassword
     );
-    LoginPage.verifyFieldsHighlightedRed();
-    LoginPage.verifyErrorMessage();
+    loginPage.verifyFieldsHighlightedRed();
+    loginPage.verifyErrorMessage();
   });
 
   it('[TC-3] Login with invalid login', () => {
-    LoginPage.login(
+    loginPage.login(
       testData.userNames.incorrectUsername,
       testData.passwords.correctPassword
     );
-    LoginPage.verifyFieldsHighlightedRed();
-    LoginPage.verifyErrorMessage();
+    loginPage.verifyFieldsHighlightedRed();
+    loginPage.verifyErrorMessage();
   });
 });

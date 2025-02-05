@@ -1,16 +1,16 @@
-import LoginPage from '../../pages/LoginPage';
-import HomePage from '../../pages/HomePage';
+import loginPage from '../../pages/LoginPage';
+import homePage from '../../pages/HomePage';
 
 describe('Sorting Items', () => {
   beforeEach(() => {
-    LoginPage.open();
+    loginPage.open();
   });
 
   it('[TC-6] Sorting', () => {
-    LoginPage.loginWithCorrectData();
-    HomePage.sortingByName_AZ();
-    HomePage.sortingByName_ZA();
-    HomePage.sortingByPrice_HighToLow();
-    HomePage.sortingByPrice_LowToHigh();
+    loginPage.loginWithCorrectData();
+    homePage.sortingByName_AZ();
+    homePage.sortingByName_ZA();
+    homePage.sortingByPrice_HighToLow();
+    homePage.sortingByPrice_LowToHigh();
   });
 });

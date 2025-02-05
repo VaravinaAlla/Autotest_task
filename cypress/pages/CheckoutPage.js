@@ -68,6 +68,14 @@ class CheckoutPage extends BasePage {
     return cy.get('[data-test="back-to-products"]');
   }
 
+  get errorMesage() {
+    return cy.get('[data-test="error-message"]');
+  }
+
+  get selectedItemName() {
+    return cy.get('@selectedItemName');
+  }
+
   clickBackHomeButton() {
     this.backHomeButton.click();
   }
@@ -101,6 +109,10 @@ class CheckoutPage extends BasePage {
     this.title.should('have.text', 'Your Cart');
   }
 
+  verifyErrorMessage() {
+    this.errorMesage.should('have.text', 'Cart is empty');
+  }
+
   verifyCheckoutPage() {
     this.title.should('have.text', 'Checkout: Your Information');
     this.checkoutForm.should('be.visible');
@@ -117,13 +129,13 @@ class CheckoutPage extends BasePage {
   }
 
   verifyProductNameInCart() {
-    cy.get('@selectedItemName').then((selectedItemName) => {
+    this.selectedItemName.then((selectedItemName) => {
       this.cartItem.contains(selectedItemName).should('be.visible');
     });
   }
 
   verifyProductNameAndPrice() {
-    cy.get('@selectedItemName').then((selectedItemName) => {
+    this.selectedItemName.then((selectedItemName) => {
       this.cartItem.contains(selectedItemName).should('be.visible');
     });
     cy.get('@selectedItemPrice').then((selectedItemPrice) => {
